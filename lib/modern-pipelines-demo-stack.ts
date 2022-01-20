@@ -13,9 +13,14 @@ export class ModernPipelinesDemoStack extends Stack {
 
     const pipeline = new CodePipeline(this, "pipeline", {
       synth: new ShellStep("Synth", {
-        input: CodePipelineSource.connection("", "", {
-          connectionArn: "",
-        }),
+        input: CodePipelineSource.connection(
+          "fatsushi/modern-pipeline-demo",
+          "main",
+          {
+            connectionArn:
+              "arn:aws:codestar-connections:us-west-2:786032344772:connection/6841341b-6ffe-4817-84a6-c9b5a9b465ec",
+          }
+        ),
         commands: ["npm ci", "npm run build", "npm cdk synth"],
       }),
     });
