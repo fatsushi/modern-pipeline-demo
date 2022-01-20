@@ -21,7 +21,7 @@ export class ModernPipelinesDemoStack extends Stack {
               "arn:aws:codestar-connections:us-west-2:786032344772:connection/6841341b-6ffe-4817-84a6-c9b5a9b465ec",
           }
         ),
-        commands: ["npm ci", "npm run build", "npm cdk synth"],
+        commands: ["npm ci", "npm run build", "npx cdk synth"],
       }),
     });
     pipeline.addStage(new MyApplication(this, "lambda-deploy"));
