@@ -12,6 +12,7 @@ export class ModernPipelinesDemoStack extends Stack {
     super(scope, id, props);
 
     const pipeline = new CodePipeline(this, "pipeline", {
+      selfMutation: false,
       synth: new ShellStep("Synth", {
         input: CodePipelineSource.connection(
           "fatsushi/modern-pipeline-demo",
